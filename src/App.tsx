@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Pane, Heading, Text, Icon, Positioner } from "evergreen-ui";
+import { Pane, Heading, Text, Icon, Badge } from "evergreen-ui";
 import "./App.scss";
 import FSM from "./fsm/FSM";
 import FSMState from "./fsm/FSMState";
@@ -86,7 +86,10 @@ class App extends Component<any, FSMState> {
               >
                 <Text color={p.topPriceProduct ? "success" : ""}>{p.name}</Text>
               </Heading>
-              {p.price}$ [{p.department}]
+              {p.price}${" "}
+              <Badge color={p.topPriceProduct ? "green" : "neutral"}>
+                {p.department}
+              </Badge>
               {p.topPriceProduct && (
                 <Icon
                   icon="tick-circle"
